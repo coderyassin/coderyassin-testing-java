@@ -8,6 +8,9 @@ import org.junit.jupiter.params.provider.ValueSource;
 import java.text.MessageFormat;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -53,6 +56,7 @@ public class CalculatorTest {
         int sum = calculatorUnderTest.add(a, b);
 
         // Assert
+        org.assertj.core.api.Assertions.assertThat(sum).isEqualTo(5);
         assertEquals(5, sum);
     }
 
@@ -67,6 +71,34 @@ public class CalculatorTest {
 
         // Assert
         assertEquals(462, result);
+    }
+
+    @Test
+    public void listDigitsShouldReturnsTheListOfDigits_ofPositiveInteger() {
+        // GIVEN
+        int number = 95897;
+
+        // WHEN
+        Set<Integer> actualDigits = calculatorUnderTest.digitsSet(number);
+
+        // THEN
+        org.assertj.core.api.Assertions.assertThat(actualDigits).containsExactlyInAnyOrder(9, 5, 8, 7);
+        Set<Integer> expectedDigits = Stream.of(5, 7, 8, 9).collect(Collectors.toSet());
+        assertEquals(expectedDigits, actualDigits);
+    }
+
+    @Test
+    public void listDigits_shouldReturnsTheListOfDigits_ofNegativeInteger() {
+        int number = -124432;
+        Set<Integer> actualDigits = calculatorUnderTest.digitsSet(number);
+        org.assertj.core.api.Assertions.assertThat(actualDigits).containsExactlyInAnyOrder(1, 2, 3, 4);
+    }
+
+    @Test
+    public void listDigits_shouldReturnsTheListOfZero_ofZero() {
+        int number = 0;
+        Set<Integer> actualDigits = calculatorUnderTest.digitsSet(number);
+        org.assertj.core.api.Assertions.assertThat(actualDigits).containsExactly(0);
     }
 
     @Timeout(1)
@@ -96,6 +128,7 @@ public class CalculatorTest {
 
         // Assert -- it's always zero !
         assertEquals(0, actualResult);
+        assert(true);
     }
 
     @ParameterizedTest(name = "{0} + {1} must be {2}")
