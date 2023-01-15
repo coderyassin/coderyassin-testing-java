@@ -136,7 +136,7 @@ public class CalculatorTest {
 
     @ParameterizedTest(name = "{0} + {1} must be {2}")
     @CsvSource({"1,1,2", "2,3,5", "42,57,99"})
-    public void add_shouldReturnTheSum_ofMultipleIntegers(int arg1, int arg2, int expectResult) {
+    void add_shouldReturnTheSum_ofMultipleIntegers(int arg1, int arg2, int expectResult) {
         // Arrange -- Everything is ready !
 
         // Act
