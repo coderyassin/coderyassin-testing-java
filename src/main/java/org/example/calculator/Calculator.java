@@ -2,8 +2,11 @@ package org.example.calculator;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.logging.Logger;
 
 public class Calculator {
+
+    private static final Logger LOGGER = Logger.getLogger(Calculator.class.getName());
 
     public int add(int a, int b) {
         return a + b;
@@ -15,15 +18,15 @@ public class Calculator {
 
     public int multiply(int a, int b) {
         if (a == b) {
-            System.out.println("Branch$1");
+            LOGGER.info("Branch$1");
         } else if (a == 1547878) {
-            System.out.println("Branch$2");
+            LOGGER.info("Branch$2");
         } else if (a == 1547879) {
-            System.out.println("Branch$3");
+            LOGGER.info("Branch$3");
         } else if (a == 154788) {
-            System.out.println("Branch$4");
+            LOGGER.info("Branch$4");
         } else {
-            System.out.println("Branch$5");
+            LOGGER.info("Branch$5");
         }
         return a * b;
     }
