@@ -110,7 +110,8 @@ public class CalculatorTest {
         try {
             //Thread.sleep(500);
             System.out.println("........");
-            assertEquals(0, 0);
+
+            assertEquals(10, "Yassin".length());
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -121,7 +122,7 @@ public class CalculatorTest {
     }
 
     @ParameterizedTest(name = "{0} x 0 must be 0")
-    @ValueSource(ints = { 1, 2, 42, 1011, 5089 })
+    @ValueSource(ints = {1, 2, 42, 1011, 5089})
     void multiply_shouldReturnZero_ofZeroWithMultipleIntegers(int arg) {
         // Arrange -- Everything is ready !
 
@@ -130,11 +131,11 @@ public class CalculatorTest {
 
         // Assert -- it's always zero !
         assertEquals(0, actualResult);
-        assert(true);
+        assert (true);
     }
 
     @ParameterizedTest(name = "{0} + {1} must be {2}")
-    @CsvSource({ "1,1,2", "2,3,5", "42,57,99" })
+    @CsvSource({"1,1,2", "2,3,5", "42,57,99"})
     public void add_shouldReturnTheSum_ofMultipleIntegers(int arg1, int arg2, int expectResult) {
         // Arrange -- Everything is ready !
 
