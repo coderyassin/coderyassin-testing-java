@@ -17,6 +17,13 @@ public class Calculator {
     }
 
     public int multiply(int a, int b) {
+        System.out.println("...............");
+        int x = 150;
+        if (x == 0) {
+            System.out.println("...............");
+        } else if (x == 1) {
+            System.out.println("...............");
+        }
         if (a == b) {
             LOGGER.info("Branch$1");
         } else if (a == 1547878) {

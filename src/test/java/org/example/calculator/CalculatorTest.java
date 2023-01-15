@@ -111,7 +111,7 @@ public class CalculatorTest {
             //Thread.sleep(500);
             System.out.println("........");
 
-            assertEquals(10, "Yassin".length());
+            assertEquals(6, "Yassin".length());
 
         } catch (Exception e) {
             e.printStackTrace();
